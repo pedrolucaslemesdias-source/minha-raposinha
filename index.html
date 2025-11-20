@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Para Minha Raposinha 💖🦊</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffe9e9;
+            font-family: "Poppins", Arial, sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            margin-top: 40px;
+            color: #ff6b81;
+            font-size: 3rem;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .heart {
+            font-size: 40px;
+            cursor: pointer;
+            transition: transform .3s ease;
+            display: inline-block;
+        }
+
+        .heart:hover {
+            transform: scale(1.3);
+        }
+
+        #mensagem {
+            margin-top: 20px;
+            font-size: 1.4rem;
+            color: #d6336c;
+            font-weight: bold;
+            min-height: 40px;
+            transition: opacity .3s ease;
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            background-color: #ff6b81;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: transform .3s ease, background-color .3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: #ff4d65;
+        }
+
+        /* corações flutuando */
+        .floating-heart {
+            position: fixed;
+            top: 100%;
+            font-size: 25px;
+            animation: subir 4s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes subir {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                transform: translateY(-120vh) scale(1.8);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Para minha raposinha linda 💖🦊</h1>
+
+    <div class="heart" onclick="mostrarMensagem()">❤️</div>
+    <div class="heart" onclick="mostrarMensagem()">💗</div>
+    <div class="heart" onclick="mostrarMensagem()">💞</div>
+
+    <p id="mensagem"></p>
+
+    <button onclick="mensagemAleatoria()">Clique para uma mensagem romântica ✨</button>
+
+    <script>
+        const mensagens = [
+            "Você é a parte mais linda dos meus dias. ❤️",
+            "Eu te amo mais do que palavras conseguem dizer. 💕",
+            "Só de pensar em você meu coração sorri. 🌸",
+            "Você é meu lugar favorito no mundo. 🦊💖",
+            "Cada momento com você é um presente. ✨",
+            "Meu amor por você só cresce. 🌹"
+        ];
+
+        function mostrarMensagem() {
+            const msg = document.getElementById("mensagem");
+            msg.style.opacity = 0;
+
+            setTimeout(() => {
+                msg.innerText = "Te amo muito, minha raposinha! 💖";
+                msg.style.opacity = 1;
+            }, 200);
+        }
+
+        function mensagemAleatoria() {
+            const msg = document.getElementById("mensagem");
+            const aleatoria = mensagens[Math.floor(Math.random() * mensagens.length)];
+            msg.innerText = aleatoria;
+        }
+
+        // Corações flutuando
+        function criarCoracao() {
+            const heart = document.createElement("div");
+            heart.classList.add("floating-heart");
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.innerText = "❤️";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        setInterval(criarCoracao, 800);
+    </script>
+
+</body>
+</html>
