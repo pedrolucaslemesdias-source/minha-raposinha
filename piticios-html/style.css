@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@300;400;500;700&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box; /* Garante que o padding não quebre o tamanho dos cards */
+}
+body{
+    background-color: #A020F0;
+}
+.topo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+h1{
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    color: #87CEFA;
+    text-align: center;
+}
+
+i{
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #eeecec;
+}
+
+.one,
+.two,
+.tree{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 10px;
+    line-height: 1.7;
+    text-align: center;
+    color: #5c3d46;
+    background-color:white;
+    border: 2px solid #df209f;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(214, 51, 132, 0.15);
+}
+/* CONTAINER DOS CARDS (Estilo padrão para Celular) */
+.card {
+    display: flex;
+    flex-direction: column; /* Um card abaixo do outro no mobile */
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* ESTILO COMPARTILHADO DOS CARDS (.one, .two, .tree) */
+.one, .two, .tree {
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;           /* Ocupa a largura disponível no mobile */
+    max-width: 280px;      /* Limite para não ficar gigante em celulares grandes */
+    min-height: 240px;     /* Mudado de max-height para min-height (evita que o texto saia do card) */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+/* ------------------------------------
+   MEDIA QUERY: Telas Maiores (Desktop)
+--------------------------------------- */
+@media (min-width: 768px) {
+    .card {
+        flex-direction: row; /* Coloca os cards lado a lado no desktop */
+        flex-wrap: wrap;     /* Permite quebrar a linha se a tela encolher */
+        min-height: auto;    /* Remove a altura de 100vh se não for mais necessária */
+        padding: 40px;
+    }
+
+    .one, .two, .tree {
+        width: 240px;        /* Tamanho fixo ideal para visualização em desktop */
+    }
+}
